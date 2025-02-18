@@ -1,0 +1,133 @@
+/* Remove flex from body to prevent everything from being centered */
+body {
+    background: linear-gradient(to right, #e8f5e9, #a5d6a7, #ffffff);
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    position: fixed; /* Fix header at the top */
+    width: 100%; /* Make sure header spans the full width */
+    top: 0; /* Keep the header at the top */
+    background-color: transparent; /* Optional: Transparent background */
+    z-index: 10; /* Ensure the header stays above other content */
+    box-sizing: border-box;
+}
+
+/* Brand name styling */
+.brand-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+
+.signup-button button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: -9px;
+}
+.signup-button button:hover {
+    background-color: black;
+    color: white;
+}
+/* Signup container */
+.login-container {
+    background-color: #fff;
+    padding: 30px ;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 130px; /* Add space to account for the fixed header */
+    margin-left:30%
+}
+
+/* Header for the form */
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Input fields */
+label {
+    text-align: left;
+    font-size: 14px;
+    color: #555;
+    width: 100%;
+    margin-bottom: 6px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #FFEB3B;
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #FFEB3B;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #FBC02D;
+}
+
+button:active {
+    background-color: #F9A825;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .signup-container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input, button {
+        font-size: 14px;
+    }
+}

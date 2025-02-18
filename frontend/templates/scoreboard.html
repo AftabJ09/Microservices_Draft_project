@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard - {{ name }}</title>
+    <link rel="stylesheet" href="/static/scoreboard.css">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ name }} Scoreboard</h1>
+
+        {% if message %}
+            <p class="message">{{ message }}</p>
+        {% else %}
+            <table>
+                <tr>
+                    <th>Topic</th>
+                    <th>Score</th>
+                </tr>
+                {% for i in range(0,count) %}
+                <tr>
+                    <td>{{ scores[i][0] }}</td>
+                    <td>{{ scores[i][1] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+    </div>
+</body>
+</html>

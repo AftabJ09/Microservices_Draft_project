@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Topics</title>
+    <link rel="stylesheet" href="/static/question_list.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Edit Questions for this topic : {{topic}}</h1>
+    </div>
+
+    <div class="questions-container">
+        {% for question in questions %}
+            <div class="question-box">
+                <p><strong>Question:</strong> {{ question[2] }}</p>
+                <p><strong>Option A:</strong> {{ question[3] }}</p>
+                <p><strong>Option B:</strong> {{ question[4] }}</p>
+                <p><strong>Option C:</strong> {{ question[5] }}</p>
+                <p><strong>Option D:</strong> {{ question[6] }}</p>
+                <p><strong>Answer:</strong> {{ question[7] }}</p>
+                
+                <!-- Edit Button -->
+                 <form action = "/edit_specific_question">
+                    <button class ='edit-button' type='submit' name = 'edit' value = "{{question[0]}}">Edit</button>
+                 </form>
+
+                 <form action = '/delete_specific_question'>
+                    <button class ='delete-button' type='submit' name = 'delete' value = "{{question[0]}}">Delete</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

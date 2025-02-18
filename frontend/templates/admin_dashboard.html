@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout with Sidebar</title>
+  <link rel="stylesheet" href="static/admin_dashboard.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Admin Dashboard</h2>
+    <p>Welcome</p>
+    <h3>{{user_name}}</h3>
+  </div>
+
+  <div class="main-content">
+    <header>
+        <h1>This is the admin dashboard</h1>
+        
+        <form action = '/logout'>
+        <button class="header-btn3">Logout</button>
+        </form>
+    </header>
+    <div class="functionalities">
+
+        <form action = '/add-queastion'>
+          <button class="add">Add a Question</button>
+        </form>
+        
+        <form action = '/Edit-Topics'>
+        <button class="edit">Edit a Question</button>
+        </form>
+
+        <form action = '/Delete-Topics'>
+        <button class="delete">Delete a Topic</button>
+        </form>
+      
+    </div>
+  </div>
+</body>
+</html>

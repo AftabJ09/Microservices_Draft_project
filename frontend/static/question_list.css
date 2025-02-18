@@ -1,0 +1,118 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header styling */
+.header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Container for the questions */
+.questions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Styling for each question box */
+.question-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.question-box:hover {
+    transform: translateY(-5px);
+}
+
+/* Question text styling */
+.question-box p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Option labels */
+.question-box strong {
+    font-weight: bold;
+}
+
+/* Edit button styling */
+.edit-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #f63232;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+    background-color: #45a049;
+}
+
+.delete-button:hover {
+    background-color: #d63c08;
+}
+
+/* Responsive Design for mobile devices */
+@media (max-width: 768px) {
+    .questions-container {
+        gap: 10px;
+    }
+
+    .question-box {
+        padding: 15px;
+    }
+
+    .question-box p {
+        font-size: 14px;
+    }
+
+    .edit-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - {{ topic }}</title>
+    <link rel="stylesheet" href="/static/quiz_portal.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz on {{ topic }}</h1>
+        <form action="/submit_quiz"  method="POST">
+            <input type="hidden" name="topic" value="{{ topic }}">
+            
+            {% for question in questions %}
+            <div class="question">
+                <p><strong>{{ loop.index }}. {{ question[2] }}</strong></p>
+                
+                <label><input type="radio" name="q{{ question[0] }}" value="A" required> {{ question[3] }}</label><br>
+                <label><input type="radio" name="q{{ question[0] }}" value="B" required> {{ question[4] }}</label><br>
+                <label><input type="radio" name="q{{ question[0] }}" value="C" required> {{ question[5] }}</label><br>
+                <label><input type="radio" name="q{{ question[0] }}" value="D" required> {{ question[6] }}</label><br>
+            </div>
+            {% endfor %}
+            
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

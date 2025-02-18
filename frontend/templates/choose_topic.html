@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Topics</title>
+    <link rel="stylesheet" href="/static/choose_topic.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Select the Quiz Topic</h1>
+    </div>
+
+    <div class="topics-container">
+        {% for i in range(0,count) %}
+            <div class="topic-item">
+                <span class="topic-name">{{ topics[i] }}</span>
+                <form action="/quiz_questions">
+                <button class="choose-btn" name = "choose_btn" id = "choose_btn" value="{{topics[i]}}">Take a Quiz</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

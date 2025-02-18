@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS quiz_data;
+USE quiz_data;
+
+CREATE TABLE IF NOT EXISTS quiz_scores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    topic VARCHAR(255) NOT NULL,
+    score INT NOT NULL
+);

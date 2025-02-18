@@ -1,0 +1,135 @@
+version: '3.8'
+
+services:
+  # MySQL Databases
+  user_database:
+    build: ./db1
+    container_name: mysql_user_database
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: user_data
+      MYSQL_USER: aftab_1
+      MYSQL_PASSWORD: Qwerty12345
+    ports:
+      - "3307:3306"
+    volumes:
+      - db1_data:/var/lib/mysql
+    networks:
+      - app_network
+
+  admin_database:
+    build: ./db2
+    container_name: mysql_admin_database
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: admin_data
+      MYSQL_USER: aftab_2
+      MYSQL_PASSWORD: Qwerty12345
+    ports:
+      - "3308:3306"
+    volumes:
+      - db2_data:/var/lib/mysql
+    networks:
+      - app_network
+
+  quiz_database:
+    build: ./db3
+    container_name: mysql_quiz_database
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: quiz_data
+      MYSQL_USER: aftab_3
+      MYSQL_PASSWORD: Qwerty12345
+    ports:
+      - "3309:3306"
+    volumes:
+      - db3_data:/var/lib/mysql
+    networks:
+      - app_network
+
+  # Microservices
+  microservice1:
+    build: ./microservice1
+    container_name: microservice1
+    restart: always
+    environment:
+      DB_HOST: user_database  
+      DB_USER: aftab_1        
+      DB_PASSWORD: Qwerty12345  
+      DB_NAME: user_data      
+    depends_on:
+      - user_database
+    ports:
+      - "5003:5003"  # Updated port for microservice1
+    networks:
+      - app_network
+
+  microservice2:
+    build: ./microservice2
+    container_name: microservice2
+    restart: always
+    environment:
+      DB_HOST: admin_database  
+      DB_USER: aftab_2      
+      DB_PASSWORD: Qwerty12345  
+      DB_NAME: admin_data     
+    depends_on:
+      - admin_database
+    ports:
+      - "5004:5004"  # Updated port for microservice2
+    networks:
+      - app_network
+
+  microservice3:
+    build: ./microservice3
+    container_name: microservice3
+    restart: always
+    environment:
+      DB_HOST: quiz_database  
+      DB_USER: aftab_3        
+      DB_PASSWORD: Qwerty12345  
+      DB_NAME: quiz_data    
+    depends_on:
+      - quiz_database
+    ports:
+      - "5005:5005"  # Updated port for microservice3
+    networks:
+      - app_network
+
+  # API Gateway
+  api-gateway:
+    build: ./api-gateway
+    container_name: api_gateway
+    restart: always
+    ports:
+      - "5002:5002"  # Keep the port for the API Gateway
+    depends_on:
+      - microservice1
+      - microservice2
+      - microservice3
+    networks:
+      - app_network
+
+  # Frontend
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    restart: always
+    ports:
+      - "5001:5001"  # Keep the port for the Frontend
+    depends_on:
+      - api-gateway
+    networks:
+      - app_network
+
+volumes:
+  db1_data:
+  db2_data:
+  db3_data:
+
+networks:
+  app_network:
+    driver: bridge

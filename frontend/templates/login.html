@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="static/login.css">
+</head>
+<body>
+    <header>
+        <div class="brand-name"><u>Quiz-Portal</u></div>
+        <div class="signup-button">
+            <form action="/signup_page">
+                <button>Sign Up</button>
+            </form>
+            
+        </div>
+    </header>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action='/Login'>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required placeholder="Enter your password">
+            <h3>{{message}}</h3>
+            <button type="submit">Login</button>
+            <a href="/signup_page" style="text-decoration: none; color: blue; margin-left: 10px;">Create Account</a>
+            <a href="/admin_login_page" style="text-decoration: none; color: green; margin-left: 10px;">Admin Login</a>
+        </form>
+    </div>
+    
+    
+</body>
+</html>

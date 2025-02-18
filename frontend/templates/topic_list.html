@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Topics</title>
+    <link rel="stylesheet" href="/static/topic_list.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Edit Topics</h1>
+    </div>
+
+    <div class="topics-container">
+        {% for i in range(0,count) %}
+            <div class="topic-item">
+                <span class="topic-name">{{ topics[i] }}</span>
+                <form action="/Edit-Questions">
+                <button class="edit-btn" name = "edit_btn" id = "edit_btn" value="{{topics[i]}}">Edit</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
