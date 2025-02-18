@@ -10,8 +10,6 @@ def get_name():
     user_name = session.get('name',None)
     return user_name
 
-
-
 @app.route('/')
 def home():
     return render_template('index.html')
